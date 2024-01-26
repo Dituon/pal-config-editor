@@ -132,6 +132,7 @@ export enum InputType {
   text = "text",
   number = "number",
   checkbox = "checkbox",
+  select = "select",
 }
 
 export interface ConfigItem<T> {
@@ -143,6 +144,11 @@ export interface ConfigItem<T> {
   max?: number,
   suffix?: string,
   step?: number,
+  options?: {
+    title: string,
+    desc: string,
+    key: string,
+  }[]
 }
 
 export type PalConfigInfo = {

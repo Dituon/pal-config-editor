@@ -5,7 +5,19 @@ export const palConfigInfoZhCn: PalConfigInfo = {
     title: "游戏难度",
     desc: "设置游戏难度",
     default: "None",
-    type: "text"
+    type: "select",
+    options: [
+      {
+        title: "简单",
+        desc: "没有难度设置",
+        key: "None"
+      },
+      {
+        title: "困难",
+        desc: "比较有挑战性的模式",
+        key: "Difficulty"
+      }
+    ]
   },
   DayTimeSpeedRate: {
     title: "白天流逝速度",
@@ -195,29 +207,51 @@ export const palConfigInfoZhCn: PalConfigInfo = {
     title: "死亡惩罚",
     desc: "设置死亡时的惩罚方式",
     default: "Item",
-    type: "text"
+    type: "select",
+    options: [
+      {
+        title: "无惩罚",
+        desc: "不掉落任何物品",
+        key: "None",
+      },
+      {
+        title: "物品",
+        desc: "只掉落物品",
+        key: "Item",
+      },
+      {
+        title: "物品与装备",
+        desc: "同时掉落物品与装备",
+        key: "ItemAndEquipment",
+      },
+      {
+        title: "全部",
+        desc: "从头开始",
+        key: "All",
+      },
+    ]
   },
   bEnablePlayerToPlayerDamage: {
-    title: "启用玩家对玩家的伤害",
+    title: "启用PVP伤害",
     desc: "启用或禁用玩家对玩家的伤害",
     default: false,
     type: "checkbox"
   },
   bEnableFriendlyFire: {
-    title: "启用友军伤害",
-    desc: "启用或禁用友军之间的伤害",
+    title: "友方火焰伤害",
+    desc: "启用或禁用友方火焰伤害 (踩到营地篝火掉血等)",
     default: false,
     type: "checkbox"
   },
   bEnableInvaderEnemy: {
-    title: "启用入侵者敌人",
-    desc: "启用或禁用入侵者",
+    title: "启用袭击事件",
+    desc: "启用或禁用袭击事件 (野怪入侵基地等)",
     default: true,
     type: "checkbox"
   },
   bActiveUNKO: {
-    title: "激活UNKO",
-    desc: "激活或禁用UNKO功能",
+    title: "启用帕鲁粪便",
+    desc: "帕鲁会拉屎",
     default: false,
     type: "checkbox"
   },
@@ -242,8 +276,8 @@ export const palConfigInfoZhCn: PalConfigInfo = {
     max: Infinity
   },
   DropItemMaxNum_UNKO: {
-    title: "UNKO掉落物品最大数量",
-    desc: "设置UNKO地图上掉落物品的最大数量",
+    title: "帕鲁粪便掉落物最大数量",
+    desc: "设置地图上掉落帕鲁粪便的最大数量",
     default: 100,
     type: "number",
     min: 0,
@@ -258,8 +292,8 @@ export const palConfigInfoZhCn: PalConfigInfo = {
     max: Infinity
   },
   BaseCampWorkerMaxNum: {
-    title: "据点工作者最大数量",
-    desc: "设置据点的最大工作者数量",
+    title: "据点工作帕鲁最大数量",
+    desc: "设置据点工作的最大帕鲁数量",
     default: 15,
     type: "number",
     min: 0,
@@ -282,8 +316,9 @@ export const palConfigInfoZhCn: PalConfigInfo = {
   AutoResetGuildTimeNoOnlinePlayers: {
     title: "无在线玩家公会自动重置时间",
     desc: "设置无在线玩家的公会自动重置的时间",
-    default: 72.000000,
+    default: 72,
     type: "number",
+    suffix: "小时",
     min: 0,
     max: Infinity
   },
@@ -292,14 +327,16 @@ export const palConfigInfoZhCn: PalConfigInfo = {
     desc: "设置公会的最大玩家数量",
     default: 20,
     type: "number",
+    suffix: "人",
     min: 0,
     max: Infinity
   },
   PalEggDefaultHatchingTime: {
     title: "帕鲁蛋默认孵化时间",
     desc: "设置帕鲁蛋的默认孵化时间",
-    default: 72.000000,
+    default: 72,
     type: "number",
+    suffix: "小时",
     min: 0,
     max: Infinity
   },
@@ -312,49 +349,49 @@ export const palConfigInfoZhCn: PalConfigInfo = {
     max: 5
   },
   bIsMultiplay: {
-    title: "是否多人模式",
+    title: "多人模式",
     desc: "启用或禁用多人游戏",
     default: false,
     type: "checkbox"
   },
   bIsPvP: {
-    title: "是否开启PvP",
+    title: "允许PvP",
     desc: "启用或禁用玩家之间的PvP模式",
     default: false,
     type: "checkbox"
   },
   bCanPickupOtherGuildDeathPenaltyDrop: {
-    title: "是否可拾取其他公会玩家掉落物",
+    title: "拾取其他公会玩家掉落物",
     desc: "启用或禁用可以拾取其他公会的死亡惩罚物品",
     default: false,
     type: "checkbox"
   },
   bEnableNonLoginPenalty: {
-    title: "是否启用不登录惩罚",
+    title: "不登录惩罚",
     desc: "启用或禁用非登录时的惩罚",
     default: true,
     type: "checkbox"
   },
   bEnableFastTravel: {
-    title: "是否开启快速传送",
+    title: "快速传送",
     desc: "启用或禁用快速传送功能",
     default: true,
     type: "checkbox"
   },
   bIsStartLocationSelectByMap: {
-    title: "开始位置由地图选择",
+    title: "可选择初始出生点",
     desc: "启用或禁用开始位置由地图选择",
     default: true,
     type: "checkbox"
   },
   bExistPlayerAfterLogout: {
-    title: "登出后玩家是否仍然存在",
-    desc: "启用或禁用登出后保留玩家角色",
+    title: "登出后删除玩家存档",
+    desc: "启用或禁用登出后删除玩家存档",
     default: false,
     type: "checkbox"
   },
   bEnableDefenseOtherGuildPlayer: {
-    title: "是否启用防御其他公会玩家功能",
+    title: "启用防御其他公会玩家功能",
     desc: "启用或禁用防御其他公会玩家",
     default: false,
     type: "checkbox"

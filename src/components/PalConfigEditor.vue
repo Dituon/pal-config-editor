@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import {palConfigInfoZhCn} from "@/lang/zh-cn";
+import {palConfigInfoZhCn} from "@/data/lang/zh-cn";
 import {PalConfig} from "@/data/palConfig";
 import {ref} from "vue";
 
@@ -40,6 +40,18 @@ const palConfigInfo = Object.freeze(palConfigInfoZhCn)
         :label="info.title"
       >
       </v-switch>
+      <v-select
+        v-else-if="info.type==='select'"
+        v-model="data[key]"
+        :label="info.title"
+        :items="info.options as {title: string, desc: string, key: string}[]"
+        item-value="key"
+        item-title="title"
+      >
+          <template v-slot:item="{ props, item }">
+            <v-list-item v-bind="props" :subtitle="item.raw.desc"></v-list-item>
+          </template>
+      </v-select>
       <v-text-field
         v-else
         :type="info.type"
