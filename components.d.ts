@@ -7,7 +7,6 @@ export {}
 
 declare module 'vue' {
   export interface GlobalComponents {
-    HelloWorld: typeof import('./src/components/HelloWorld.vue')['default']
     PalConfigEditor: typeof import('./src/components/PalConfigEditor.vue')['default']
   }
 }

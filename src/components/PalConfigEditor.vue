@@ -1,12 +1,10 @@
 <script setup lang="ts">
 import {palConfigInfoZhCn} from "@/lang/zh-cn";
-import {defaultPalConfig, PalConfig} from "@/data/palConfig";
-import {reactive, watch} from "vue";
-import { saveAs } from 'file-saver'
-import ini from 'ini'
+import {PalConfig} from "@/data/palConfig";
+import {ref} from "vue";
 
 const model = defineModel<PalConfig>()
-const data = reactive(model)
+const data = ref(model)
 
 const palConfigInfo = Object.freeze(palConfigInfoZhCn)
 </script>

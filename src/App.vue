@@ -79,7 +79,7 @@ function save() {
           @click="save"
         ></v-btn>
       </v-app-bar>
-      <PalConfigEditor v-model="data" ref="editor"/>
+      <PalConfigEditor v-model="data"/>
     </v-main>
   </v-app>
 </template>
