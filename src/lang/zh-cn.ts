@@ -189,7 +189,7 @@ export const palConfigInfoZhCn: PalConfigInfo = {
     default: 1,
     type: "number",
     min: 0.1,
-    max: 5
+    max: 3
   },
   DeathPenalty: {
     title: "死亡惩罚",
