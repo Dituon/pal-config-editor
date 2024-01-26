@@ -103,7 +103,7 @@ export const defaultPalConfig: PalConfig = {
   bAutoResetGuildNoOnlinePlayers: false,
   AutoResetGuildTimeNoOnlinePlayers: 72,
   GuildPlayerMaxNum: 20,
-  PalEggDefaultHatchingTime: 72,
+  PalEggDefaultHatchingTime: 2,
   WorkSpeedRate: 1,
   bIsMultiplay: false,
   bIsPvP: false,
@@ -148,7 +148,8 @@ export interface ConfigItem<T> {
     title: string,
     desc: string,
     key: string,
-  }[]
+  }[],
+  icon?: string,
 }
 
 export type PalConfigInfo = {

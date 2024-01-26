@@ -79,7 +79,10 @@ function save() {
           @click="save"
         ></v-btn>
       </v-app-bar>
-      <PalConfigEditor v-model="data"/>
+      <PalConfigEditor
+        v-model="data"
+        style="max-width: max(50%, 600px)"
+      />
     </v-main>
   </v-app>
 </template>
