@@ -9,16 +9,19 @@ import decodeConfig from "@/serialize/decode";
 const data = ref({...defaultPalConfig})
 
 let files = ref<FileList>([] as any as FileList)
+const fileDialog = ref(false)
 
 watch(files, n => {
+  console.log(n)
   if (!n.length) return
-  const file = n.item(0)
-  const reader = new FileReader();
+  const file = n[0]
+  const reader = new FileReader()
 
   reader.onload = (e) => {
     if (e.target) {
       const content = e.target.result as string;
       data.value = decodeConfig(content)
+      fileDialog.value = false
     } else {
       throw new Error('Failed to read file.')
     }
@@ -60,6 +63,7 @@ function save() {
           </v-icon>
           <v-dialog
             activator="parent"
+            v-model="fileDialog"
             width="400"
           >
             <v-card>
