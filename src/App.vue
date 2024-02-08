@@ -11,6 +11,9 @@ const data = ref({...defaultPalConfig})
 let files = ref<FileList>([] as any as FileList)
 const fileDialog = ref(false)
 
+//TODO: change language button
+const lang = ref(navigator.language.startsWith('zh') ? 'zh-cn' : 'en-us')
+
 watch(files, n => {
   console.log(n)
   if (!n.length) return
@@ -85,6 +88,7 @@ function save() {
       </v-app-bar>
       <PalConfigEditor
         v-model="data"
+        :lang="lang as any"
         style="max-width: max(50%, 600px)"
       />
     </v-main>

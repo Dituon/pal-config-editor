@@ -557,3 +557,5 @@ export const palConfigInfoZhCn: PalConfigInfo = {
     icon: 'mdi-view-list',
   },
 }
+
+export default palConfigInfoZhCn

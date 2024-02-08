@@ -156,4 +156,11 @@ export type PalConfigInfo = {
   [K in keyof PalConfig]: ConfigItem<PalConfig[K]>
 }
 
-
+export const langMap = [
+  {
+    title: '简体中文', src: 'zh-cn'
+  },
+  {
+    title: 'English', src: 'en-us'
+  },
+]

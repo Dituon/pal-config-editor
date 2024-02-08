@@ -1,12 +1,29 @@
 <script setup lang="ts">
-import {palConfigInfoZhCn} from "@/data/lang/zh-cn";
 import {PalConfig} from "@/data/palConfig";
-import {ref} from "vue";
+import {onMounted, PropType, ref, toRefs, watch} from "vue";
+
+const props = defineProps({
+  lang: {
+    type: String as PropType<'zh-cn' | 'en-us'>,
+    default: 'en-us'
+  }
+})
+const { lang } = toRefs(props)
 
 const model = defineModel<PalConfig>()
 const data = ref(model)
 
-const palConfigInfo = Object.freeze(palConfigInfoZhCn)
+async function init() {
+  const { default: info } = await import(`../data/lang/${lang?.value}.ts`);
+  Object.freeze(info)
+  palConfigInfo.value = info
+}
+
+watch(lang, init)
+
+onMounted(init)
+
+const palConfigInfo = ref({})
 </script>
 
 <template>
